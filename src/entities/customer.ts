@@ -1,14 +1,9 @@
 class Customer {
 
-    /**
-     * Custumer é considerado um Entity pois é um objeto único e identificável (_id: string). 
-     * No momento, a classe Customer também é considerada uma classe anêmica, pois possuí apenas os Getters e Setters,
-     * não contendo nenhum tipo de regra especifica e carregando apenas dados assim como os DTO's (Data Transfer Objects).
-     */ 
-
-    _id: string; // Identificável e Única
-    _name: string;
-    _address: string;
+    private _id: string;
+    private _name: string;
+    private _address: string;
+    private _active: boolean = true;
 
     constructor(id: string, name: string, address: string) {
         this._id = id;
@@ -16,23 +11,15 @@ class Customer {
         this._address = address;
     }
 
-    get id() : string {
-        return this.id;
+    changeName(name: string) {
+        this._name = name;
     }
 
-    get name() : string {
-        return this._name;
+    public activate() {
+        this._active = true;
     }
 
-    get address(): string {
-        return this.address;
-    }
-
-    set name(name: string) {
-        this.name = name;
-    }
-
-    set address(address: string) {
-        this._address = address;
+    public deactivate() {
+        this._active = false;
     }
 }

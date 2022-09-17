@@ -1,3 +1,16 @@
+// Entity -> NEGÓCIO
+// Model -> PERSISTENCIA
+
+/**
+ *  Domain - Complexidade de Negócio
+ *  - Entity
+ *  - - custumer.ts -> Negócio
+ * 
+ *  Infra - Complexidade Acidental
+ *  - Entity || Model 
+ *  - - customer.ts -> ORM
+ */
+
 class Customer {
 
     private _id: string;

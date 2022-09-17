@@ -58,3 +58,5 @@ class Customer {
         this._address = address;
     }
 }
+
+export default Customer;

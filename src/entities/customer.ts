@@ -1,3 +1,5 @@
+import Address from '../value_objects/address';
+
 // Entity -> NEGÓCIO
 // Model -> PERSISTENCIA
 
@@ -13,10 +15,10 @@
 
 class Customer {
 
-    private _id: string;
-    private _name: string = "";
-    private _address: string = "";
-    private _active: boolean = true;
+    _id: string;
+    _name: string;
+    _address!: Address;
+    _active: boolean = true;
 
     constructor(id: string, name: string) {
         this._id = id;  
@@ -41,7 +43,7 @@ class Customer {
 
     public activate() {
 
-        if (this._address.length === 0) {
+        if (this._address === undefined) {
             throw new Error("Address is mandatory to activate a custumer");
         }
 
@@ -50,5 +52,9 @@ class Customer {
 
     public deactivate() {
         this._active = false;
+    }
+
+    setAddress(address: Address) {
+        this._address = address;
     }
 }
